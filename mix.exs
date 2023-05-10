@@ -40,9 +40,9 @@ defmodule Anthropic.MixProject do
       {:ex_doc, "~> 0.27", only: :dev, runtime: false},
       {:bypass, "~> 2.1", only: :test},
       {:jason, "~> 1.4"},
-      {:hackney, "~> 1.10"},
+      {:mint, "~> 1.5"},
       {:plug, "~> 1.14", only: :test},
-      {:tesla, github: "connorjacobsen/tesla", ref: "1d2e7999f3a0894652fab88512c25db3a917a70f"}
+      {:tesla, "~> 1.6"}
     ]
   end
 end
