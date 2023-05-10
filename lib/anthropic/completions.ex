@@ -12,7 +12,7 @@ defmodule Anthropic.Completions do
           optional(:top_p) => float()
         }
 
-  @spec create(Client.t(), create_params(), Keyword.t()) :: Client.result()
+  @spec create(Client.client(), create_params(), Keyword.t()) :: Client.result()
   def create(client, params, opts \\ []) do
     opts = Client.with_stream_opts(params, opts)
 
