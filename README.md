@@ -15,8 +15,6 @@ def deps do
 end
 ```
 
-Note: This library relies on a fork of the [Tesla](https://github.com/elixir-tesla/tesla) HTTP client to support response streaming. The fork will be removed once it is supported in the main Tesla library.
-
 ## Configuration
 
 You can configure the client via `config.exs`:

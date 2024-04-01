@@ -11,6 +11,7 @@ defmodule Anthropic.Client do
   @type new_client_opt ::
           {:api_key, String.t()}
           | {:base_url, String.t()}
+          | {:timeout, integer()}
 
   @type new_client_opts :: [new_client_opt]
 
@@ -21,11 +22,13 @@ defmodule Anthropic.Client do
 
   - `:api_key` - API key to use for the client.
   - `:base_url` - URL for the Anthropic API.
+  - `:timeout` - timeout for the client.
   """
   @spec new(new_client_opts()) :: client()
   def new(opts \\ []) do
     base_url = Config.get(opts, :base_url, @default_base_url)
     api_key = fetch_config!(:api_key, opts)
+    timeout = Config.get(opts, :timeout, 30_000)
 
     middleware = [
       {Tesla.Middleware.BaseUrl, base_url},
@@ -33,7 +36,7 @@ defmodule Anthropic.Client do
       {Tesla.Middleware.Headers, build_headers(api_key)}
     ]
 
-    adapter = {Tesla.Adapter.Mint, [timeout: 30_000]}
+    adapter = {Tesla.Adapter.Mint, [timeout: timeout]}
 
     Tesla.client(middleware, adapter)
   end
