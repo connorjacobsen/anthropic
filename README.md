@@ -10,7 +10,7 @@ by adding `anthropic` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:anthropic, github: "connorjacobsen/anthropic"}
+    {:anthropic, "~> 0.2"}
   ]
 end
 ```
@@ -25,9 +25,18 @@ config :anthropic, api_key: "your-api-key",
 
 You can also specify the configuration options directly when initially a client. This will override any global config options.
 
-
 ```elixir
 Anthropic.Client.new(api_key: "your-api-key")
+```
+
+## Messages
+
+```elixir
+{:ok, resp} = Anthropic.Messages.create(client, %{
+  messages: [%{role: "user", content: "Hello, Claude"],
+  model: "claude-3-opus-20240229",
+  max_tokens: 500
+})
 ```
 
 ## Completions
