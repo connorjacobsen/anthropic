@@ -32,8 +32,10 @@ Anthropic.Client.new(api_key: "your-api-key")
 ## Messages
 
 ```elixir
+client = Athropic.Client.new()
+
 {:ok, resp} = Anthropic.Messages.create(client, %{
-  messages: [%{role: "user", content: "Hello, Claude"],
+  messages: [%{role: "user", content: "Hello, Claude"}],
   model: "claude-3-opus-20240229",
   max_tokens: 500
 })
@@ -42,6 +44,8 @@ Anthropic.Client.new(api_key: "your-api-key")
 ## Completions
 
 ```elixir
+client = Athropic.Client.new()
+
 {:ok, data} = Anthropic.Completions.create(client, %{
   prompt: "\n\nWhy is the sky blue?\n\nAssistant:",
   model: "claude-v1",

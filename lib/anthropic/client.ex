@@ -55,6 +55,7 @@ defmodule Anthropic.Client do
     api_key
     |> auth_headers()
     |> put_header("user-agent", "anthropic-elixir")
+    |> put_header("anthropic-version", "2023-06-01")
   end
 
   defp put_header(headers, key, value) do
