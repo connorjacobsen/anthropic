@@ -10,7 +10,7 @@ by adding `anthropic` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:anthropic, "~> 0.2"}
+    {:anthropic, "~> 0.3"}
   ]
 end
 ```
